@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Riya Documents</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f4f4f4;
+    }
+    h1 { text-align: center; }
+
+    .doc-list {
+      max-width: 700px;
+      margin: auto;
+    }
+    .doc-item {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .doc-info { flex-grow: 1; }
+    .doc-id { font-size: 0.9em; color: #666; }
+    .doc-name { font-weight: bold; font-size: 1.1em; }
+
+    .doc-actions button {
+      margin-left: 10px;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9em;
+    }
+    .show-btn { background-color: #007bff; color: white; }
+    .pdf-btn { background-color: #28a745; color: white; }
+    .img-btn { background-color: #ffc107; color: black; }
+
+    /* ===== POPUP ===== */
+    #popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    #popup img {
+      max-width: 90%;
+      max-height: 90%;
+      border: 3px solid white;
+      border-radius: 10px;
+    }
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 40px;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>My Documents</h1>
+  <div class="doc-list">
+
+        <!-- EAadhaar - unlocked -->
+    <div class="doc-item">
+    <div class="doc-info">
+        <div class="doc-name">Aadhaar - unlocked</div>
+        <div class="doc-id">9303 4289 7046</div>
+    </div>
+    <div class="doc-actions">
+        <button class="show-btn" onclick="openPopup('EAadhaar.jpg')">Show</button>
+        <button class="pdf-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1IpdD0jU9_L6c0zJBW9w3Bfri72Zghx53&export=download')">Download PDF</button>
+        <button class="img-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=16hOsGyPvzxsgMQGo2hHBMFllldxq8bgm&export=download')">Download Image</button>
+    </div>
+    </div>
+
+    <!-- EAadhaar - locked -->
+    <div class="doc-item">
+    <div class="doc-info">
+        <div class="doc-name">Aadhaar - locked</div>
+        <div class="doc-id">MAHA1998</div>
+    </div>
+    <div class="doc-actions">
+        <button class="Show-btn disabled">Show</button>
+        <button class="pdf-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1eH-yj939-jl8iIkMBbqem4Yr8vTBjrgc&export=download')">Download PDF</button>
+        <button class="Img-btn disabled">Download Image</button>
+    </div>
+    </div>
+
+    <!-- Pan Card -->
+    <div class="doc-item">
+    <div class="doc-info">
+        <div class="doc-name">Pan Card</div>
+        <div class="doc-id">CBKPG3673C</div>
+    </div>
+    <div class="doc-actions">
+        <button class="show-btn" onclick="openPopup('Pan Card.jpg')">Show</button>
+        <button class="pdf-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=104rf6cru1UAvqFk1zQAeu5V0G6qQcvWY&export=download')">Download PDF</button>
+        <button class="img-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1ysI6aCxw7d2vnjpnLRDpiqX7Tjhfg5jZ&export=download')">Download Image</button>
+    </div>
+    </div>
+
+    <!-- Passport -->
+    <div class="doc-item">
+    <div class="doc-info">
+        <div class="doc-name">Passport</div>
+        <div class="doc-id">V2189265</div>
+    </div>
+    <div class="doc-actions">
+        <button class="show-btn" onclick="openPopup('Passport.jpg')">Show</button>
+        <button class="pdf-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1hIiNlglFVmLNDHpD2PL0W2obvAObOsFk&export=download')">Download PDF</button>
+        <button class="img-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1U-W9lVtf7hjDVN9m6Derj1dKHIn-xeBg&export=download')">Download Image</button>
+    </div>
+    </div>
+
+    <!-- Election Card.pdf -->
+    <div class="doc-item">
+    <div class="doc-info">
+        <div class="doc-name">Election Card</div>
+        <div class="doc-id">RRN2191062</div>
+    </div>
+    <div class="doc-actions">
+        <button class="show-btn" onclick="openPopup('Election Card.jpg')">Show</button>
+        <button class="pdf-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1Y__894xKAxzZrabB0VnS_VHPJE-nBmmJ&export=download')">Download PDF</button>
+        <button class="img-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1WbEUYB44fpbkuoAo9WmD3ITeYkKa9Rn&export=download')">Download Image</button>
+    </div>
+    </div>
+    <!-- HDFC Bank Check -->
+    <div class="doc-item">
+    <div class="doc-info">
+        <div class="doc-name">HDFC Bank Check</div>
+        <div class="doc-id">50100291676088 - HDFC0004198</div>
+    </div>
+    <div class="doc-actions">
+        <button class="show-btn" onclick="openPopup('HDFC Bank Check.jpg')">Show</button>
+        <button class="pdf-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=19wivmOZTAOo5szdBpW-qGbGWDzk5Zrmv&export=download')">Download PDF</button>
+        <button class="img-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=18EoSY0fqbbUfHuDyjuGsRXDmRjJh9RFL&export=download')">Download Image</button>
+    </div>
+    </div>
+
+    <!-- EPF Card -->
+    <div class="doc-item">
+    <div class="doc-info">
+        <div class="doc-name">EPF Card</div>
+        <div class="doc-id">101509538877</div>
+    </div>
+    <div class="doc-actions">
+        <button class="Show-btn disabled">Show</button>
+        <button class="pdf-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1uiTlTL__YRcmBlTRwDDxd3FQab5GMHYF&export=download')">Download PDF</button>
+        <button class="Img-btn disabled">Download Image</button>
+    </div>
+    </div>
+
+    <!-- Profile 1 -->
+    <div class="doc-item">
+    <div class="doc-info">
+        <div class="doc-name">Profile 1</div>
+        <div class="doc-id">NA</div>
+    </div>
+    <div class="doc-actions">
+        <button class="show-btn" onclick="openPopup('Profile_1.jpg')">Show</button>
+        <button class="pdf-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1yMB0j9dioIAdHm4PpRJYNNKulv725NkN&export=download')">Download PDF</button>
+        <button class="img-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1de7ZDX_QNCGa702OnUi3ESk79JM5yQki&export=download')">Download Image</button>
+    </div>
+    </div>
+
+    <!-- Profile 2 -->
+    <div class="doc-item">
+    <div class="doc-info">
+        <div class="doc-name">Profile 2</div>
+        <div class="doc-id">NA</div>
+    </div>
+    <div class="doc-actions">
+        <button class="show-btn" onclick="openPopup('Profile_2.jpg')">Show</button>
+        <button class="pdf-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1ZpZuuE872kVTYV-91sX-T1qwgaZHbPTr&export=download')">Download PDF</button>
+        <button class="img-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1waEtJeSmn3ndY0fXmSemS4aTwNvWNgUe&export=download')">Download Image</button>
+    </div>
+    </div>
+
+    <!-- Profile 3 -->
+    <div class="doc-item">
+    <div class="doc-info">
+        <div class="doc-name">Profile 3</div>
+        <div class="doc-id">NA</div>
+    </div>
+    <div class="doc-actions">
+        <button class="show-btn" onclick="openPopup('Profile_3.jpg')">Show</button>
+        <button class="pdf-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1UurUVyOlEWUGanMjMqn4d3rc06lP9opi&export=download')">Download PDF</button>
+        <button class="img-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1OftAY5m6SixyoLcqz8-pmB5Drf46GgbT&export=download')">Download Image</button>
+    </div>
+    </div>
+
+    <!-- Sign -->
+    <div class="doc-item">
+    <div class="doc-info">
+        <div class="doc-name">My Signature</div>
+        <div class="doc-id">NA</div>
+    </div>
+    <div class="doc-actions">
+        <button class="show-btn" onclick="openPopup('Sign.jpg')">Show</button>
+        <button class="pdf-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1XE0wjduCYH7frF-vhLAAYyEIoppJEy8z&export=download')">Download PDF</button>
+        <button class="img-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1t2fFCJmImJL0WedYXwiENASwO28FBE1t&export=download')">Download Image</button>
+    </div>
+    </div>
+
+    <!-- SSLC -->
+    <div class="doc-item">
+    <div class="doc-info">
+        <div class="doc-name">SSLC</div>
+        <div class="doc-id">SEC 2270097</div>
+    </div>
+    <div class="doc-actions">
+        <button class="show-btn" onclick="openPopup('SSLC.jpg')">Show</button>
+        <button class="pdf-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1mUtfcpSVpebigzeyLD68iEz2lSPDmt_c&export=download')">Download PDF</button>
+        <button class="img-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1-pYRyVwW-Z4LNQOJddLc1c_RSTFnMEtq&export=download')">Download Image</button>
+    </div>
+    </div>
+
+    <!-- 1st Year -->
+    <div class="doc-item">
+    <div class="doc-info">
+        <div class="doc-name">First Year</div>
+        <div class="doc-id">M2016/461049</div>
+    </div>
+    <div class="doc-actions">
+        <button class="show-btn" onclick="openPopup('1st Year.jpg')">Show</button>
+        <button class="pdf-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1hX16MA3Ngb_lccQj-C0djV_H7gKyUnUu&export=download')">Download PDF</button>
+        <button class="img-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1453DGk2yGTDZcNdNMclso8StUk9M9Nh6&export=download')">Download Image</button>
+    </div>
+    </div>
+
+    <!-- 1st year (A) -->
+    <div class="doc-item">
+    <div class="doc-info">
+        <div class="doc-name">First Year (arrier)</div>
+        <div class="doc-id">M2017/155782</div>
+    </div>
+    <div class="doc-actions">
+        <button class="show-btn" onclick="openPopup('1st Year (A).jpg')">Show</button>
+        <button class="pdf-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=19-L9are2JzDnkSFmUq6VdIq7kdf_OKFT&export=download')">Download PDF</button>
+        <button class="img-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1yjAACiEOxK7XJasxLuChtv6mh-cQ-FGH&export=download')">Download Image</button>
+    </div>
+    </div>
+
+    <!-- 2nd year -->
+    <div class="doc-item">
+    <div class="doc-info">
+        <div class="doc-name">Second Year</div>
+        <div class="doc-id">M2017/245769</div>
+    </div>
+    <div class="doc-actions">
+        <button class="show-btn" onclick="openPopup('2nd Year.jpg')">Show</button>
+        <button class="pdf-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1R3E7nxBf235i32JX5lcnsiGmhmeeOZG5&export=download')">Download PDF</button>
+        <button class="img-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1VffeuMC0EL2NC9hm0RM9bic2g9nGbtBd&export=download')">Download Image</button>
+    </div>
+    </div>
+
+    <!-- 2nd Year (A) -->
+    <div class="doc-item">
+    <div class="doc-info">
+        <div class="doc-name">Second Year (arrier)</div>
+        <div class="doc-id">M2018/291836</div>
+    </div>
+    <div class="doc-actions">
+        <button class="show-btn" onclick="openPopup('2nd Year (A).jpg')">Show</button>
+        <button class="pdf-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1bPUxIryKj7KNLZSb2vPOv6BCwWmWXv2p&export=download')">Download PDF</button>
+        <button class="img-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=19rHAo5dzVLa9EAMzXcsqk1nJSuu9jDUp&export=download')">Download Image</button>
+    </div>
+    </div>
+
+    <!-- 3rd Year -->
+    <div class="doc-item">
+    <div class="doc-info">
+        <div class="doc-name">Third Year</div>
+        <div class="doc-id">M2018/365744</div>
+    </div>
+    <div class="doc-actions">
+        <button class="show-btn" onclick="openPopup('3rd Year.jpg')">Show</button>
+        <button class="pdf-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1IYTFlHptIpjfhs0ngopICcdTkaB2aK6d&export=download')">Download PDF</button>
+        <button class="img-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1qZaxVtb9k0Kuf3r13CDzgCi5pSc08Akj&export=download')">Download Image</button>
+    </div>
+    </div>
+
+    <!-- 4th year -->
+    <div class="doc-item">
+    <div class="doc-info">
+        <div class="doc-name">Final Year</div>
+        <div class="doc-id">M2018/448352</div>
+    </div>
+    <div class="doc-actions">
+        <button class="show-btn" onclick="openPopup('4th Year.jpg')">Show</button>
+        <button class="pdf-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1dMhlc2Z7uLbQDX13w4opE7MgIF05fVIv&export=download')">Download PDF</button>
+        <button class="img-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1z0J8pnE3Zdemmd1HA3QqZlTGW7BKTg6c&export=download')">Download Image</button>
+    </div>
+    </div>
+
+    <!-- Course Complete Certificate -->
+    <div class="doc-item">
+    <div class="doc-info">
+        <div class="doc-name">Course Complete</div>
+        <div class="doc-id">RVS/CONK/2019</div>
+    </div>
+    <div class="doc-actions">
+        <button class="show-btn" onclick="openPopup('Course Complete Certificate.jpg')">Show</button>
+        <button class="pdf-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1oru3B6N59SEl_LmLxQKecZH0a-cIfhGf&export=download')">Download PDF</button>
+        <button class="img-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1_tfLjNxvTPhZgCJQIcMfdH3CRA5eQJfy&export=download')">Download Image</button>
+    </div>
+    </div>
+
+    <!-- Degree -->
+    <div class="doc-item">
+    <div class="doc-info">
+        <div class="doc-name">Bsc Degree</div>
+        <div class="doc-id">DC NO. 09476/2020</div>
+    </div>
+    <div class="doc-actions">
+        <button class="show-btn" onclick="openPopup('Degree.jpg')">Show</button>
+        <button class="pdf-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=19oeLawJ0GTLyY5S_KnJddou3oMSVJsMl&export=download')">Download PDF</button>
+        <button class="img-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1urM_0bQBoQ-DKqW5Dp8-hTRVEgo-ej2_&export=download')">Download Image</button>
+    </div>
+    </div>
+
+    <!-- Provisional Certificate.pdf -->
+    <div class="doc-item">
+    <div class="doc-info">
+        <div class="doc-name">Provisional</div>
+        <div class="doc-id">P2019/91352</div>
+    </div>
+    <div class="doc-actions">
+        <button class="Show-btn disabled">Show</button>
+        <button class="pdf-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1gBu8pb9SdafJFidtRC4Ms4I6iU_HBBfq&export=download')">Download PDF</button>
+        <button class="Img-btn disabled">Download Image</button>
+    </div>
+    </div>
+
+    <!-- Registration -->
+    <div class="doc-item">
+    <div class="doc-info">
+        <div class="doc-name">Registration</div>
+        <div class="doc-id">216215</div>
+    </div>
+    <div class="doc-actions">
+        <button class="show-btn" onclick="openPopup('Registration.jpg')">Show</button>
+        <button class="pdf-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=15M7Wj2Lk_2b6Zz9jTi1cZAFzstqMAaNm&export=download')">Download PDF</button>
+        <button class="img-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1DWVY4v7pzkPmoZ2d-Ic3t1YPMaLmbtsn&export=download')">Download Image</button>
+    </div>
+    </div>
+
+    <!-- TC -->
+    <div class="doc-item">
+    <div class="doc-info">
+        <div class="doc-name">Transfer Certificate</div>
+        <div class="doc-id">RVS 18/15-16</div>
+    </div>
+    <div class="doc-actions">
+        <button class="show-btn" onclick="openPopup('TC.jpg')">Show</button>
+        <button class="pdf-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1zrQwVr90qH_45E7YeaGlKm1Cit1cOxcs&export=download')">Download PDF</button>
+        <button class="img-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1L14bLaXNq8KdpKjvYzeAZQ4eIcqdmw2o&export=download')">Download Image</button>
+    </div>
+    </div>
+
+
+
+    <!-- transcript mark sheet -->
+    <div class="doc-item">
+    <div class="doc-info">
+        <div class="doc-name">Transcript Mark Sheet</div>
+        <div class="doc-id">Register # 661526768</div>
+    </div>
+    <div class="doc-actions">
+        <button class="Show-btn disabled">Show</button>
+        <button class="pdf-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1HBlliMbLfe7LotD0lGu9twuwaXwhb4tZ&export=download')">Download PDF</button>
+        <button class="Img-btn disabled">Download Image</button>
+    </div>
+    </div>
+
+    <!-- License card -->
+    <div class="doc-item">
+    <div class="doc-info">
+        <div class="doc-name">License Card</div>
+        <div class="doc-id">216215-26/11/2019</div>
+    </div>
+    <div class="doc-actions">
+        <button class="show-btn" onclick="openPopup('License Card.jpg')">Show</button>
+        <button class="pdf-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=18gx3qoUQJFGxEdM8AAIMiOZfUaZHpO3D&export=download')">Download PDF</button>
+        <button class="img-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1ArCb6w2SIAN_SMCvDV-GUTGks6hYTDKn&export=download')">Download Image</button>
+    </div>
+    </div>
+
+    <!-- NH PaySlip 1 -->
+    <div class="doc-item">
+    <div class="doc-info">
+        <div class="doc-name">NH PaySlip 1</div>
+        <div class="doc-id">Emp Code 00350296</div>
+    </div>
+    <div class="doc-actions">
+        <button class="show-btn" onclick="openPopup('NH_PaySlip_1.jpg')">Show</button>
+        <button class="pdf-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1clzgs-1uB8Ee7aML45hEDbFbnhIfxl-J&export=download')">Download PDF</button>
+        <button class="img-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1yAtIWnVaal6yusE_2BjsQCingSDy1iNy&export=download')">Download Image</button>
+    </div>
+    </div>
+
+    <!-- NH PaySlip 2 -->
+    <div class="doc-item">
+    <div class="doc-info">
+        <div class="doc-name">NH PaySlip 2</div>
+        <div class="doc-id">Emp Code 00350296</div>
+    </div>
+    <div class="doc-actions">
+        <button class="show-btn" onclick="openPopup('NH_PaySlip_2.jpg')">Show</button>
+        <button class="pdf-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1_qin6jMUSmRPX9sFrJWpfH7MS1PsCtbA&export=download')">Download PDF</button>
+        <button class="img-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1zejWyNVQ9FveL_VU3z8P-oEBL_maLsP9&export=download')">Download Image</button>
+    </div>
+    </div>
+
+    <!-- NH PaySlip 3 -->
+    <div class="doc-item">
+    <div class="doc-info">
+        <div class="doc-name">NH PaySlip 3</div>
+        <div class="doc-id">Emp Code 00350296</div>
+    </div>
+    <div class="doc-actions">
+        <button class="show-btn" onclick="openPopup('NH_PaySlip_3.jpg')">Show</button>
+        <button class="pdf-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1Sgvcl7BczXcpMXvUn0R5Za0RS30U_FiO&export=download')">Download PDF</button>
+        <button class="img-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1NpF0WtgBqCFS9ELp1Hu3l-zt2jA2cdbg&export=download')">Download Image</button>
+    </div>
+    </div>
+
+    <!-- 350296 Relieving Letter -->
+    <div class="doc-item">
+    <div class="doc-info">
+        <div class="doc-name">NH Relieving Letter</div>
+        <div class="doc-id">FFS00035813</div>
+    </div>
+    <div class="doc-actions">
+        <button class="show-btn" onclick="openPopup('350296 Relieving Letter.jpg')">Show</button>
+        <button class="pdf-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1psp66avCsUL7BsP-D-Lzwtf2mXKXRO_u&export=download')">Download PDF</button>
+        <button class="img-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1dMq3HikSfScdv1wrn9NQle6Y48QwumWj&export=download')">Download Image</button>
+    </div>
+    </div>
+
+    <!-- 350296 Experience letter -->
+    <div class="doc-item">
+    <div class="doc-info">
+        <div class="doc-name">NH Experience letter</div>
+        <div class="doc-id">FFS00035813</div>
+    </div>
+    <div class="doc-actions">
+        <button class="show-btn" onclick="openPopup('350296_Experience_letter.jpg')">Show</button>
+        <button class="pdf-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=13uGOFJUap_xpYn_BU7roRzZ5KpSK_7fj&export=download')">Download PDF</button>
+        <button class="img-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=14KwU_xOThh4UEt6E5HWtedjhJpCiuVcB&export=download')">Download Image</button>
+    </div>
+    </div>
+
+    <!-- BLS card -->
+    <div class="doc-item">
+    <div class="doc-info">
+        <div class="doc-name">BLS card</div>
+        <div class="doc-id">225604733154</div>
+    </div>
+    <div class="doc-actions">
+        <button class="show-btn" onclick="openPopup('BLS card.jpg')">Show</button>
+        <button class="pdf-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1UEPzWOxouyFVhh_YLzx8jbZu4xawmG17&export=download')">Download PDF</button>
+        <button class="img-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1pTweAlTkFj9dgjguDr8_lmdPz39N5fUJ&export=download')">Download Image</button>
+    </div>
+    </div>
+
+    <!-- BLS certificate -->
+    <div class="doc-item">
+    <div class="doc-info">
+        <div class="doc-name">BLS certificate</div>
+        <div class="doc-id">225604733154</div>
+    </div>
+    <div class="doc-actions">
+        <button class="show-btn" onclick="openPopup('BLS certificate.jpg')">Show</button>
+        <button class="pdf-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1ujDB3hwqlSBapJvasfwHxhk5RhZaEUQM&export=download')">Download PDF</button>
+        <button class="img-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1bcvjIoc8eBirmHqa3hgYlnSEr72oRV9D&export=download')">Download Image</button>
+    </div>
+    </div>
+
+    <!-- Iqama -->
+    <div class="doc-item">
+    <div class="doc-info">
+        <div class="doc-name">Iqama</div>
+        <div class="doc-id">1400833199</div>
+    </div>
+    <div class="doc-actions">
+        <button class="show-btn" onclick="openPopup('Iqama.jpg')">Show</button>
+        <button class="pdf-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1OOfatwsNyPeExFGWt-1WpPVAmckq9ChW&export=download')">Download PDF</button>
+        <button class="img-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1IMh2B-TYmW6vj_WbZATucn7koh-gCpha&export=download')">Download Image</button>
+    </div>
+    </div>
+
+    <!-- Saudi ID -->
+    <div class="doc-item">
+    <div class="doc-info">
+        <div class="doc-name">Saudi ID</div>
+        <div class="doc-id">NA</div>
+    </div>
+    <div class="doc-actions">
+        <button class="show-btn" onclick="openPopup('Saudi_ID.jpg')">Show</button>
+        <button class="pdf-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1Og6xK8ZqJ3B_TByxMouGAhajUHRcUTFI&export=download')">Download PDF</button>
+        <button class="img-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1dFXfiBKE5xr6W7Ne8jkp5NDKOZwD5x22&export=download')">Download Image</button>
+    </div>
+    </div>
+
+    <!-- Maha Priya - CV.pdf -->
+    <div class="doc-item">
+    <div class="doc-info">
+        <div class="doc-name">Maha Priya - CV.pdf</div>
+        <div class="doc-id">NA</div>
+    </div>
+    <div class="doc-actions">
+        <button class="Show-btn disabled">Show</button>
+        <button class="pdf-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1lF1SNytX5BUt-LgZuAiYnNUGW35V_UB5&export=download')">Download PDF</button>
+        <button class="Img-btn disabled">Download Image</button>
+    </div>
+    </div>
+
+    <!-- All Documents.pdf -->
+    <div class="doc-item">
+    <div class="doc-info">
+        <div class="doc-name">All Documents.pdf</div>
+        <div class="doc-id">NA</div>
+    </div>
+    <div class="doc-actions">
+        <button class="Show-btn disabled">Show</button>
+        <button class="pdf-btn" onclick="window.open('https://drive.usercontent.google.com/u/0/uc?id=1gH0aY6_uOh2HhDLoTKt3enItM6MsfVLc&export=download')">Download PDF</button>
+        <button class="Img-btn disabled">Download Image</button>
+    </div>
+    </div>
+
+
+
+
+
+  <!-- POPUP BOX -->
+  <div id="popup" onclick="closePopup()">
+    <span class="close-btn" onclick="closePopup()">×</span>
+    <img id="popupImage">
+  </div>
+
+  <script>
+    function openPopup(src) {
+      document.getElementById("popupImage").src = src;
+      document.getElementById("popup").style.display = "flex";
+    }
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
